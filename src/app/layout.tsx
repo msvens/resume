@@ -34,11 +34,13 @@ export default async function RootLayout({
 
   return (
     <html lang={initialLocale} suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans min-h-screen flex flex-col`}>
         <ThemeProvider>
           <LanguageProvider initialLocale={initialLocale}>
             <TopBar />
-            {children}
+            <div className="flex-1">
+              {children}
+            </div>
             <Footer />
           </LanguageProvider>
         </ThemeProvider>

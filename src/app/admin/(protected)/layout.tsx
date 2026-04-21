@@ -1,6 +1,6 @@
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
-import { AdminNav } from '@/components/admin/AdminNav';
+import { AdminSidebar } from '@/components/admin/AdminSidebar';
 
 export default async function AdminLayout({
   children,
@@ -14,9 +14,18 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-8">
-      <AdminNav userName={session.user.name ?? 'Admin'} userImage={session.user.image ?? undefined} />
-      {children}
+    <div className="max-w-5xl mx-auto px-6">
+      {/* Mobile: stacked layout */}
+      <div className="md:hidden">
+        <AdminSidebar />
+        <div className="py-6">{children}</div>
+      </div>
+
+      {/* Desktop: sidebar + content */}
+      <div className="hidden md:flex gap-8 py-8">
+        <AdminSidebar />
+        <div className="flex-1 min-w-0">{children}</div>
+      </div>
     </div>
   );
 }
