@@ -54,10 +54,16 @@ export function SectionDetail({ section, items }: { section: SectionData; items:
             </select>
           </div>
           <FormField label="Sort Order" name="sortOrder" type="number" defaultValue={String(section.sortOrder)} required />
-          <label className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-            <input type="checkbox" name="showInPdf" defaultChecked={section.showInPdf} className="rounded" />
-            Include in PDF
-          </label>
+          <div className="space-y-2">
+            <label className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
+              <input type="checkbox" name="visible" defaultChecked={section.visible} className="rounded" />
+              Visible on website
+            </label>
+            <label className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
+              <input type="checkbox" name="showInPdf" defaultChecked={section.showInPdf} className="rounded" />
+              Include in PDF
+            </label>
+          </div>
           <div className="flex gap-2">
             <SubmitButton />
             <button type="button" onClick={() => setEditingSection(false)} className="px-4 py-2 text-sm text-neutral-500">Cancel</button>
@@ -67,7 +73,7 @@ export function SectionDetail({ section, items }: { section: SectionData; items:
         <div className="flex items-baseline justify-between">
           <div>
             <h1 className="text-2xl font-light text-neutral-900 dark:text-neutral-100">{section.labelEn}</h1>
-            <p className="text-sm text-neutral-500 mt-1">{section.slug} · {section.displayType}{!section.showInPdf && ' · hidden from PDF'}</p>
+            <p className="text-sm text-neutral-500 mt-1">{section.slug} · {section.displayType}{!section.visible && ' · hidden'}{!section.showInPdf && ' · no PDF'}</p>
           </div>
           <button onClick={() => setEditingSection(true)} className="text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100">
             Edit section

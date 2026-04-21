@@ -1,11 +1,11 @@
 import { getProfile } from '@/lib/services/profile';
-import { listSectionsWithItems } from '@/lib/services/sections';
+import { listVisibleSectionsWithItems } from '@/lib/services/sections';
 import { ResumeContent } from '@/components/resume/ResumeContent';
 
 export default async function Home() {
   const [profileData, sections] = await Promise.all([
     getProfile(),
-    listSectionsWithItems(),
+    listVisibleSectionsWithItems(),
   ]);
 
   if (!profileData) {

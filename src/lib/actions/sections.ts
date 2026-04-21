@@ -26,6 +26,7 @@ export async function createSection(formData: FormData) {
     labelEn: formData.get('labelEn') as string,
     labelSv: formData.get('labelSv') as string,
     displayType: formData.get('displayType') as string,
+    visible: formData.get('visible') === 'on',
     showInPdf: formData.get('showInPdf') === 'on',
     sortOrder: Number(formData.get('sortOrder')),
   };
@@ -48,6 +49,7 @@ export async function updateSection(id: number, formData: FormData) {
     labelEn: formData.get('labelEn') as string,
     labelSv: formData.get('labelSv') as string,
     displayType: formData.get('displayType') as string,
+    visible: formData.get('visible') === 'on',
     showInPdf: formData.get('showInPdf') === 'on',
     sortOrder: Number(formData.get('sortOrder')),
   };

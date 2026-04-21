@@ -24,6 +24,7 @@ export const section = pgTable('section', {
   labelEn: text('label_en').notNull(),
   labelSv: text('label_sv').notNull(),
   displayType: text('display_type').notNull().default('entries'),
+  visible: boolean('visible').notNull().default(true),
   showInPdf: boolean('show_in_pdf').notNull().default(true),
   sortOrder: integer('sort_order').notNull(),
 });

@@ -31,6 +31,18 @@ export async function listSectionsWithItems() {
   );
 }
 
+export async function listVisibleSectionsWithItems() {
+  const sections = await db.select().from(section)
+    .where(eq(section.visible, true))
+    .orderBy(asc(section.sortOrder));
+  return Promise.all(
+    sections.map(async (s) => ({
+      ...s,
+      items: await listItemsBySection(s.id),
+    }))
+  );
+}
+
 export async function listPdfSectionsWithItems() {
   const sections = await db.select().from(section)
     .where(and(eq(section.showInPdf, true)))

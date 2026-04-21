@@ -23,6 +23,7 @@ interface SectionSeed {
   labelEn: string;
   labelSv: string;
   displayType: 'entries' | 'chips';
+  visible: boolean;
   showInPdf: boolean;
   sortOrder: number;
 }
@@ -42,7 +43,7 @@ interface ItemSeed {
 
 export const sectionsSeed: Array<{ section: SectionSeed; items: ItemSeed[] }> = [
   {
-    section: { slug: 'experience', labelEn: 'Experience', labelSv: 'Erfarenhet', displayType: 'entries', showInPdf: true, sortOrder: 10 },
+    section: { slug: 'experience', labelEn: 'Experience', labelSv: 'Erfarenhet', displayType: 'entries', visible: true, showInPdf: true, sortOrder: 10 },
     items: [
       {
         titleEn: 'Spotify', titleSv: 'Spotify',
@@ -111,7 +112,7 @@ export const sectionsSeed: Array<{ section: SectionSeed; items: ItemSeed[] }> = 
     ],
   },
   {
-    section: { slug: 'skills-technical', labelEn: 'Technical Skills', labelSv: 'Tekniska färdigheter', displayType: 'chips', showInPdf: true, sortOrder: 20 },
+    section: { slug: 'skills-technical', labelEn: 'Technical Skills', labelSv: 'Tekniska färdigheter', displayType: 'chips', visible: true, showInPdf: true, sortOrder: 20 },
     items: [
       { titleEn: 'Software Development', titleSv: 'Mjukvaruutveckling', sortOrder: 10 },
       { titleEn: 'Databases', titleSv: 'Databaser', sortOrder: 20 },
@@ -126,7 +127,7 @@ export const sectionsSeed: Array<{ section: SectionSeed; items: ItemSeed[] }> = 
     ],
   },
   {
-    section: { slug: 'skills-leadership', labelEn: 'Leadership Skills', labelSv: 'Ledarskapsförmågor', displayType: 'chips', showInPdf: true, sortOrder: 30 },
+    section: { slug: 'skills-leadership', labelEn: 'Leadership Skills', labelSv: 'Ledarskapsförmågor', displayType: 'chips', visible: true, showInPdf: true, sortOrder: 30 },
     items: [
       { titleEn: 'Leading leaders', titleSv: 'Leda ledare', sortOrder: 10 },
       { titleEn: 'People Management', titleSv: 'Personalledning', sortOrder: 20 },
@@ -136,7 +137,7 @@ export const sectionsSeed: Array<{ section: SectionSeed; items: ItemSeed[] }> = 
     ],
   },
   {
-    section: { slug: 'skills-programming', labelEn: 'Programming Languages', labelSv: 'Programmeringsspråk', displayType: 'chips', showInPdf: true, sortOrder: 40 },
+    section: { slug: 'skills-programming', labelEn: 'Programming Languages', labelSv: 'Programmeringsspråk', displayType: 'chips', visible: true, showInPdf: true, sortOrder: 40 },
     items: [
       { titleEn: 'Java', titleSv: 'Java', sortOrder: 10 },
       { titleEn: 'Scala', titleSv: 'Scala', sortOrder: 20 },
@@ -150,14 +151,14 @@ export const sectionsSeed: Array<{ section: SectionSeed; items: ItemSeed[] }> = 
     ],
   },
   {
-    section: { slug: 'skills-languages', labelEn: 'Languages', labelSv: 'Språk', displayType: 'chips', showInPdf: true, sortOrder: 50 },
+    section: { slug: 'skills-languages', labelEn: 'Languages', labelSv: 'Språk', displayType: 'chips', visible: true, showInPdf: true, sortOrder: 50 },
     items: [
       { titleEn: 'Swedish (native)', titleSv: 'Svenska (modersmål)', sortOrder: 10 },
       { titleEn: 'English (fluent)', titleSv: 'Engelska (flytande)', sortOrder: 20 },
     ],
   },
   {
-    section: { slug: 'education', labelEn: 'Education', labelSv: 'Utbildning', displayType: 'entries', showInPdf: true, sortOrder: 60 },
+    section: { slug: 'education', labelEn: 'Education', labelSv: 'Utbildning', displayType: 'entries', visible: true, showInPdf: true, sortOrder: 60 },
     items: [
       { titleEn: 'Ericsson Leadership Core Curriculum (LCC) for Line Managers', titleSv: 'Ericssons Leadership Core Curriculum (LCC) för linjechefer', startDate: '2009-01-01', sortOrder: 10 },
       { titleEn: 'Ph.D., Dept. Computer and Systems Sciences, Stockholm University', titleSv: 'Fil.dr., Inst. för data- och systemvetenskap, Stockholms universitet', startDate: '2003-01-01', sortOrder: 20 },
@@ -167,7 +168,7 @@ export const sectionsSeed: Array<{ section: SectionSeed; items: ItemSeed[] }> = 
     ],
   },
   {
-    section: { slug: 'projects', labelEn: 'Projects', labelSv: 'Projekt', displayType: 'entries', showInPdf: true, sortOrder: 70 },
+    section: { slug: 'projects', labelEn: 'Projects', labelSv: 'Projekt', displayType: 'entries', visible: true, showInPdf: true, sortOrder: 70 },
     items: [
       {
         titleEn: 'Mellowtech Core', titleSv: 'Mellowtech Core',
@@ -214,7 +215,7 @@ export const sectionsSeed: Array<{ section: SectionSeed; items: ItemSeed[] }> = 
     ],
   },
   {
-    section: { slug: 'patents', labelEn: 'Patents', labelSv: 'Patent', displayType: 'entries', showInPdf: false, sortOrder: 80 },
+    section: { slug: 'patents', labelEn: 'Patents', labelSv: 'Patent', displayType: 'entries', visible: true, showInPdf: false, sortOrder: 80 },
     items: [
       { titleEn: 'Inferring environmental knowledge through near field communication and data mining', titleSv: 'Inferring environmental knowledge through near field communication and data mining', subtitleEn: 'US 8266027 B2 · Grant', subtitleSv: 'US 8266027 B2 · Grant', startDate: '2012-09-11', sortOrder: 10 },
       { titleEn: 'Root cause problem detection in network traffic information', titleSv: 'Root cause problem detection in network traffic information', subtitleEn: 'US 7813298 B2 · Grant', subtitleSv: 'US 7813298 B2 · Grant', startDate: '2010-10-12', sortOrder: 20 },
