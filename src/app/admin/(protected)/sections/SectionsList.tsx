@@ -79,6 +79,10 @@ export function SectionsList({ sections }: { sections: SectionData[] }) {
               <option value="chips">Chips (tags/pills)</option>
             </select>
           </div>
+          <label className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
+            <input type="checkbox" name="showInPdf" defaultChecked={true} className="rounded" />
+            Include in PDF
+          </label>
           <div className="flex gap-2">
             <SubmitButton label="Create" />
             <button type="button" onClick={() => setShowForm(false)} className="px-4 py-2 text-sm text-neutral-500 hover:text-neutral-700">

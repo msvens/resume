@@ -1,7 +1,7 @@
 import 'server-only';
 import { db } from '@/db/client';
 import { section, sectionItem } from '@/db/schema';
-import { asc, eq } from 'drizzle-orm';
+import { asc, eq, and } from 'drizzle-orm';
 
 export async function listSections() {
   return db.select().from(section).orderBy(asc(section.sortOrder));
@@ -23,6 +23,18 @@ export async function getSectionItem(id: number) {
 
 export async function listSectionsWithItems() {
   const sections = await listSections();
+  return Promise.all(
+    sections.map(async (s) => ({
+      ...s,
+      items: await listItemsBySection(s.id),
+    }))
+  );
+}
+
+export async function listPdfSectionsWithItems() {
+  const sections = await db.select().from(section)
+    .where(and(eq(section.showInPdf, true)))
+    .orderBy(asc(section.sortOrder));
   return Promise.all(
     sections.map(async (s) => ({
       ...s,

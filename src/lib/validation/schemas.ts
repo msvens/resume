@@ -21,6 +21,7 @@ export const sectionSchema = z.object({
   labelEn: z.string().min(1),
   labelSv: z.string().min(1),
   displayType: z.enum(['entries', 'chips']),
+  showInPdf: z.boolean(),
   sortOrder: z.number().int(),
 });
 
