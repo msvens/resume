@@ -17,15 +17,13 @@ export function ResumeContent({ profile, sections }: ResumeContentProps) {
   const l = language;
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12 md:py-20">
+    <main className="max-w-4xl mx-auto px-6 py-8 md:py-20">
       <ResumeHeader
         name={profile.name}
         title={l === 'sv' ? profile.titleSv : profile.titleEn}
         email={profile.email}
         phone={profile.phone}
         location={l === 'sv' ? profile.locationSv : profile.locationEn}
-        github={profile.github}
-        linkedin={profile.linkedin}
         photoUrl={profile.photoUrl}
         available={profile.available}
         bio={l === 'sv' ? profile.bioSv : profile.bioEn}

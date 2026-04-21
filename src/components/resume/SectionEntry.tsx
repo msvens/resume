@@ -23,9 +23,8 @@ export function SectionEntry({ title, subtitle, startDate, endDate, locale = 'en
   );
 
   return (
-    <div className="pb-8 mb-8 border-b border-neutral-200 dark:border-neutral-800 last:border-0 last:mb-0 last:pb-0">
-      <span className="w-8 h-[3px] bg-neutral-900 dark:bg-neutral-100 block mb-4" />
-      <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+    <div className="pt-8 mt-8 border-t border-neutral-200 dark:border-neutral-800 first:border-0 first:mt-0 first:pt-0">
+      <h3 className="text-base sm:text-xl font-semibold text-neutral-900 dark:text-neutral-100">
         {titleContent}
       </h3>
       {subtitle && (
@@ -35,7 +34,7 @@ export function SectionEntry({ title, subtitle, startDate, endDate, locale = 'en
         <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-2">{dateDisplay}</p>
       )}
       {description && (
-        <div className="mt-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
+        <div className="mt-4 text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
           <Markdown content={description} />
         </div>
       )}

@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { TopBar } from "@/components/TopBar";
+import { Footer } from "@/components/Footer";
 import type { Language } from "@/context/LanguageContext";
 import "./globals.css";
 
@@ -38,6 +39,7 @@ export default async function RootLayout({
           <LanguageProvider initialLocale={initialLocale}>
             <TopBar />
             {children}
+            <Footer />
           </LanguageProvider>
         </ThemeProvider>
       </body>
