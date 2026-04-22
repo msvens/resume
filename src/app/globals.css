@@ -16,6 +16,10 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: default;
+}
+
 @media print {
   .no-print {
     display: none !important;

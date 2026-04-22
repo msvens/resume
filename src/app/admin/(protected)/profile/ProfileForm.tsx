@@ -42,7 +42,7 @@ export function ProfileForm({ profile }: { profile: ProfileData }) {
         </label>
       </div>
 
-      <BilingualField label="Bio" nameEn="bioEn" nameSv="bioSv" defaultValueEn={profile.bioEn} defaultValueSv={profile.bioSv} textarea rows={8} />
+      <BilingualField label="Bio (Markdown)" nameEn="bioEn" nameSv="bioSv" defaultValueEn={profile.bioEn} defaultValueSv={profile.bioSv} markdown rows={8} />
 
       <SubmitButton />
     </form>

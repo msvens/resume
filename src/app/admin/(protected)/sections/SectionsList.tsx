@@ -47,11 +47,6 @@ export function SectionsList({ sections }: { sections: SectionData[] }) {
       <div className="space-y-2">
         {sections.map((s, idx) => (
           <div key={s.id} className="flex items-center gap-3 p-4 border border-neutral-200 dark:border-neutral-800 rounded">
-            <ReorderButtons
-              onMove={(dir) => handleReorder(s.id, dir)}
-              isFirst={idx === 0}
-              isLast={idx === sections.length - 1}
-            />
             <div className="flex-1 min-w-0">
               <Link href={`/admin/sections/${s.id}`} className="font-medium text-neutral-900 dark:text-neutral-100 hover:underline">
                 {s.labelEn}
@@ -59,6 +54,11 @@ export function SectionsList({ sections }: { sections: SectionData[] }) {
               <span className="ml-2 text-xs text-neutral-500">{s.slug} · {s.displayType}</span>
             </div>
             <DeleteButton onDelete={() => handleDelete(s.id)} />
+            <ReorderButtons
+              onMove={(dir) => handleReorder(s.id, dir)}
+              isFirst={idx === 0}
+              isLast={idx === sections.length - 1}
+            />
           </div>
         ))}
       </div>

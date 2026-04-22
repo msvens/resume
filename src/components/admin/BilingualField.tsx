@@ -48,7 +48,7 @@ export function BilingualField({
   return (
     <fieldset className="space-y-2">
       <legend className="text-sm font-medium text-neutral-700 dark:text-neutral-300">{label}</legend>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className={`grid grid-cols-1 gap-3 ${!textarea && !markdown ? 'md:grid-cols-2' : ''}`}>
         {renderField(nameEn, defaultValueEn, 'EN')}
         {renderField(nameSv, defaultValueSv, 'SV')}
       </div>

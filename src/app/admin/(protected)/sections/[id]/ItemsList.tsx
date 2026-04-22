@@ -76,11 +76,6 @@ export function ItemsList({ sectionId, displayType, items }: ItemsListProps) {
               />
             ) : (
               <div className="flex items-center gap-3 p-3 border border-neutral-200 dark:border-neutral-800 rounded">
-                <ReorderButtons
-                  onMove={(dir) => handleReorder(item.id, dir)}
-                  isFirst={idx === 0}
-                  isLast={idx === items.length - 1}
-                />
                 <div className="flex-1 min-w-0">
                   <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">{item.titleEn}</span>
                   {item.subtitleEn && <span className="ml-2 text-xs text-neutral-500">{item.subtitleEn}</span>}
@@ -91,6 +86,11 @@ export function ItemsList({ sectionId, displayType, items }: ItemsListProps) {
                   </button>
                   <DeleteButton onDelete={() => handleDelete(item.id)} />
                 </div>
+                <ReorderButtons
+                  onMove={(dir) => handleReorder(item.id, dir)}
+                  isFirst={idx === 0}
+                  isLast={idx === items.length - 1}
+                />
               </div>
             )}
           </div>

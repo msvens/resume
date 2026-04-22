@@ -1,5 +1,6 @@
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import { Markdown } from '@/components/resume/Markdown';
 
 interface ResumeHeaderProps {
   name: string;
@@ -33,7 +34,7 @@ export function ResumeHeader({
             alt={name}
             width={72}
             height={72}
-            className="rounded-full object-cover shrink-0"
+            className="rounded-full object-cover shrink-0 md:w-24 md:h-24"
           />
         )}
         <div className="min-w-0">
@@ -65,10 +66,8 @@ export function ResumeHeader({
         </div>
       </div>
 
-      <div className="mt-8 space-y-4 text-neutral-600 dark:text-neutral-400 text-sm sm:text-base leading-relaxed max-w-3xl">
-        {bio.split('\n\n').map((paragraph, i) => (
-          <p key={i}>{paragraph}</p>
-        ))}
+      <div className="mt-8 text-neutral-600 dark:text-neutral-400 text-sm sm:text-base leading-relaxed max-w-3xl">
+        <Markdown content={bio} />
       </div>
     </header>
   );
