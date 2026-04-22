@@ -141,9 +141,21 @@ export function ResumePdf({ profile, sections, locale }: ResumePdfProps) {
           <Text style={styles.sectionTitle}>
             {locale === 'sv' ? 'Profil' : 'Profile'}
           </Text>
-          {pick(profile.bioEn, profile.bioSv, locale).split('\n\n').map((para, i) => (
-            <Text key={i} style={styles.bio}>{para}</Text>
-          ))}
+          {(() => {
+            const paragraphs = pick(profile.bioEn, profile.bioSv, locale)
+              .replace(/\r\n/g, '\n')
+              .split(/\n{2,}/)
+              .map((p) => p.trim())
+              .filter(Boolean);
+            return paragraphs.map((para, i) => (
+              <Text
+                key={i}
+                style={i === paragraphs.length - 1 ? [styles.bio, { marginBottom: 0 }] : styles.bio}
+              >
+                {para}
+              </Text>
+            ));
+          })()}
         </View>
 
         {/* Sections */}
