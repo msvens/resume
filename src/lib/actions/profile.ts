@@ -6,6 +6,7 @@ import { profileSchema } from '@/lib/validation/schemas';
 import { db } from '@/db/client';
 import { profile } from '@/db/schema';
 import { eq } from 'drizzle-orm';
+import { getProfile } from '@/lib/services/profile';
 
 function emptyToNull(val: string | undefined): string | null {
   return val && val.trim() !== '' ? val.trim() : null;
@@ -36,6 +37,9 @@ export async function updateProfile(formData: FormData) {
   }
 
   const data = parsed.data;
+  const existing = await getProfile();
+  if (!existing) return { ok: false, errors: 'No profile found' };
+
   await db.update(profile).set({
     name: data.name,
     titleEn: data.titleEn,
@@ -51,7 +55,7 @@ export async function updateProfile(formData: FormData) {
     bioEn: data.bioEn,
     bioSv: data.bioSv,
     updatedAt: new Date(),
-  }).where(eq(profile.id, 1));
+  }).where(eq(profile.id, existing.id));
 
   revalidatePath('/');
   revalidatePath('/admin/profile');
